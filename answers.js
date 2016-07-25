@@ -1,46 +1,72 @@
 'use strict';
 
-// Iterate with recursion
-// let arr = [1,2,3,4,5,6,7];
-//
-// let iterate = (arr) => {
-//   console.log(arr[0]);
-//   if(arr.length === 1) {
-//     return;
-//   };
-//   arr.shift();
-//   iterate(arr);
-// };
+// *********** Iterate with recursion ***********
+let arr = [1,2,3,4,5,6,7];
 
-// iterate(arr);
+let iterate = (arr) => {
+  if(arr.length === 0) {
+    return;
+  };
+  console.log(arr.shift());
+  iterate(arr);
+};
 
 
-// Closure example in Javascript
-//
-// let addNumbers = (num1) => {
-//   return (num2) => {
-//     return num1 + num2;
-//   }
-// };
-
-
+// *********** Closure example in Javascript ***********
+let addNumbers = (num1) => {
+  return (num2) => {
+    return num1 + num2;
+  }
+};
 // both console.log's should output 4;
-// console.log(addNumbers(2)(2));
-// let addTo4 = addNumbers(2);
-// console.log(addTo4(2));
+console.log(addNumbers(2)(2));
+let addTo4 = addNumbers(2);
+console.log(addTo4(2));
 
 
-// Hoisting:
-// Undefined
-// 2
+// *********** Hoisting ***********
+Undefined
+2
 
 
-// eventLoop:
-// 1
-// 4
-// 3
-// 2
+// *********** eventLoop ***********
+1
+4
+3
+2
 
-// operators:
-// true
-// false
+// *********** operators ***********
+true
+false
+
+
+// *********** fizzBuzz ***********
+let checker = (num, divisor) => num % divisor === 0;
+
+let fizzerBuzzer = (arr) => {
+    return arr.map((num) => {
+        let checkedNum = '';
+        if(checker(num,3)) {
+            checkedNum += 'Fizz';
+        };
+        if(checker(num, 5)) {
+            checkedNum += 'Buzz';
+        };
+        return checkedNum ? checkedNum : num;
+    }).reduce((output, item) => {
+        return output += `${item} \n`;
+    },'');
+};
+
+
+// *********** sum ***********
+let total = nums.reduce((total, current) => {
+    return total += current;
+}, 0);
+
+
+// *********** animals ***********
+let printNameAndSpecies = (animal) => `${animal.name} is a ${animal.species}`;
+let isDog = (animal) => animal.species === 'dog';
+
+let dogs = animals.filter(isDog).map(printNameAndSpecies);
