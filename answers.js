@@ -66,8 +66,13 @@ let total = nums.reduce((total, current) => total + current);
 // *********** animals ***********
 let printNameAndSpecies = (animal) => `${animal.name} is a ${animal.species}`;
 let isDog = (animal) => animal.species === 'dog';
-
 let dogs = animals.filter(isDog).map(printNameAndSpecies);
+// or
+let dogs = animals.filter((animal) => {
+    return animal.species === 'dog';
+}).map((animal) => {
+    return `${animal.name} is a ${animal.species}`;
+});
 
 
 // *********** minCoins ***********
