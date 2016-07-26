@@ -60,9 +60,7 @@ let fizzerBuzzer = (arr) => {
 
 
 // *********** sum ***********
-let total = nums.reduce((total, current) => {
-    return total += current;
-}, 0);
+let total = nums.reduce((total, current) => total + current);
 
 
 // *********** animals ***********
