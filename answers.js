@@ -54,7 +54,7 @@ let fizzerBuzzer = (arr) => {
         };
         return checkedNum ? checkedNum : num;
     }).reduce((output, item) => {
-        return output += `${item} \n`;
+        return output += `${item}\n`;
     },'');
 };
 
@@ -70,3 +70,20 @@ let printNameAndSpecies = (animal) => `${animal.name} is a ${animal.species}`;
 let isDog = (animal) => animal.species === 'dog';
 
 let dogs = animals.filter(isDog).map(printNameAndSpecies);
+
+
+// *********** minCoins ***********
+let minCoins = (amount, index, count, denomination) => {
+    if((index + 1) > denomination.length) {
+        return count;
+    }
+    if(amount >= denomination[index]) {
+        amount -= denomination[index];
+        count += 1;
+    } else {
+        index += 1;
+    }
+    return minCoins(amount, index, count, denomination);
+};
+
+console.log(minCoins(92, 0, 0, [25,10,5,1]));
